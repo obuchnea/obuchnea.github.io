@@ -1,33 +1,37 @@
 @font-face {
     font-family: "HelveticaReal";
-    src: url("../fonts/Helvetica/Helvetica CE Bold.otf") format("opentype");
+    src: url("fonts/Helvetica/Helvetica CE Bold.otf") format("opentype");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: "HelveticaReal";
-    src: url("../fonts/Helvetica/Helvetica CE Bold Oblique.otf") format("opentype");
+    src: url("fonts/Helvetica/Helvetica CE Bold Oblique.otf") format("opentype");
     font-weight: 700;
     font-style: oblique;
 }
 
 @font-face {
     font-family: "HelveticaReal";
-    src: url("../fonts/Helvetica/Helvetica CE Medium.otf") format("opentype");
+    src: url("fonts/Helvetica/Helvetica CE Medium.otf") format("opentype");
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: "HelveticaReal";
-    src: url("../fonts/Helvetica/Helvetica CE Oblique.otf") format("opentype");
+    src: url("fonts/Helvetica/Helvetica CE Oblique.otf") format("opentype");
     font-weight: 500;
     font-style: oblique;
 }
 
 html {
     font-family: "HelveticaReal";
-    background-color: blue;
-    color: orange;
+    background-color: white;
+    color: black;
+}
+
+body {
+    font-family: "HelveticaReal";
 }
