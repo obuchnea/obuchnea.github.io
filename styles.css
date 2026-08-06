@@ -26,12 +26,140 @@
     font-style: oblique;
 }
 
+@font-face {
+    font-family: "Bicrode";
+    src: url("fonts/BICRODEPERSONALUSE.ttf") format("truetype");
+}
+
 html {
     font-family: "HelveticaReal";
     background-color: white;
     color: black;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 body {
     font-family: "HelveticaReal";
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
+.main-image-container img {
+    content: url("Main.png");
+}
+
+.main-image-container:hover img {
+    content: url("Main_OWAIN_Hover.png");
+}
+
+div.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+div.gallery-item {
+  margin: 5px;
+  width: 243px;
+  /* height: 180px; */
+  transition: 0.5s;
+}
+
+div.gallery-item:hover {
+    box-shadow: 0px 0px 20px 10px var(--avg-color, white);
+}
+
+div.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 85%;
+    max-height: 80vh;
+    animation: zoom 0.25s;
+    transition:transform .15s;
+    cursor:grab;
+}
+
+#caption {
+    color: #eee;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+@keyframes zoom {
+    from { transform: scale(0.85); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    top: 18px; right: 30px;
+    color: #f1f1f1;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover { color: #bbb; }
+
+.nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    color:white;
+    font-size:60px;
+
+    cursor:pointer;
+    user-select:none;
+
+    padding:20px;
+}
+
+.left{
+    left:25px;
+}
+
+.right{
+    right:25px;
+}
+
+.nav:hover{
+    color:#ccc;
+}
+
+.gallery-header {
+    align-items: center;
+    background-color: rgb(211, 182, 146);
+    padding: 20px 20px 20px 20px;
+    font-family: "HelveticaReal";
+    color: black;
+    font-size: 30px;
 }

@@ -1,0 +1,290 @@
+
+
+<html style="background-color: black;">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <div class="gallery-header">
+        <p>
+            home - about me - workterms
+        </p>
+    </div>
+
+    <div class="gallery" id="gallery"></div>
+
+    <div id="myModal" class="modal">
+        <span class="close" id="closeBtn">&times;</span>
+        <span class="nav left">&#10094;</span>
+        <img class="modal-content" id="modalImg">
+        <span class="nav right">&#10095;</span>
+        <div id="caption"></div>
+    </div>
+
+    <script src="avecolour.js"></script>
+    <script>
+
+        function showImage(index) {
+            currentIndex = index;
+            modalImg.src = "gallery/" + orderedImages[index].file;
+            caption.textContent = orderedImages[index].title;
+            modal.classList.add("open");
+        }
+
+        function nextImage(){
+            currentIndex = (currentIndex + 1) % orderedImages.length;
+            showImage(currentIndex);
+        }
+
+        function previousImage(){
+            currentIndex--;
+            if(currentIndex < 0)
+                currentIndex = orderedImages.length - 1;
+            showImage(currentIndex);
+        }
+
+        function showImage(index){
+            currentIndex = index;
+            scale = 1;
+            modalImg.style.transform = "scale(1)";
+            modalImg.src = "gallery/" + orderedImages[index].file;
+            caption.textContent = orderedImages[index].title;
+            modal.classList.add("open");
+        }
+
+        document.querySelector(".left").onclick = previousImage;
+        document.querySelector(".right").onclick = nextImage;
+
+        const modal = document.getElementById('myModal');
+        const modalImg = document.getElementById('modalImg');
+        const caption = document.getElementById('caption');
+        const gallery = document.getElementById("gallery");
+
+        let currentIndex = 0;
+        let scale = 1;
+
+        modalImg.addEventListener("wheel",(e)=>{
+            e.preventDefault();
+            if(e.deltaY < 0)
+                scale *= 1.15;
+            else
+                scale /= 1.15;
+            scale = Math.max(1, Math.min(scale,8));
+            modalImg.style.transform =
+                `scale(${scale})`;
+        });
+
+        modalImg.addEventListener("mousemove",(e)=>{
+            const rect = modalImg.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width * 100;
+            const y = (e.clientY - rect.top) / rect.height * 100;
+            modalImg.style.transformOrigin = `${x}% ${y}%`;
+        });
+        
+        gallery.addEventListener("click", (e) => {
+            if (e.target.tagName !== "IMG") return;
+            showImage(Number(e.target.dataset.index));
+        });
+        
+        function closeModal() {
+            modal.classList.remove('open');
+        }
+        
+        document.getElementById('closeBtn').addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal(); // click on backdrop closes it
+        });
+        document.addEventListener("keydown", (e)=>{
+            if(!modal.classList.contains("open"))
+                return;
+            switch(e.key){
+                case "ArrowLeft":
+                    previousImage();
+                    break;
+                case "ArrowRight":
+                    nextImage();
+                    break;
+                case "Escape":
+                    closeModal();
+                    break;
+            }
+
+        });
+
+        // ----------------------------------------------- //
+
+        const images = [
+            {
+                file: "after dusk v4.png",
+                title: "After Dawn",
+                poster: false
+            },
+            {
+                file: "angel.png",
+                title: "Angel",
+                poster: false
+            },
+            {
+                file: "between.png",
+                title: "Between",
+                poster: false
+            },
+            {
+                file: "bite of life.png",
+                title: "Bite of Life",
+                poster: false
+            },
+            {
+                file: "bitmapTest.png",
+                title: "Bitmap Test",
+                poster: false
+            },
+            {
+                file: "Bliss.png",
+                title: "Bliss",
+                poster: true
+            },
+            {
+                file: "botanical - no word.png",
+                title: "Botanical",
+                poster: false
+            },
+            {
+                file: "cant bear.png",
+                title: "Can't Bear",
+                poster: false
+            },
+            {
+                file: "days gone by.png",
+                title: "Days Gone",
+                poster: false
+            },
+            {
+                file: "embrace.png",
+                title: "Embrace",
+                poster: false
+            },
+            {
+                file: "Endless Appeal.png",
+                title: "Endless Appeal",
+                poster: false
+            },
+            {
+                file: "false echoes.png",
+                title: "False Echoes",
+                poster: true
+            },
+            {
+                file: "Felt Tip Love.png",
+                title: "Felt Tip Love",
+                poster: true
+            },
+            {
+                file: "Film Proj Title Poster Textured Final.png",
+                title: "Temporal Insanity Poster",
+                poster: false
+            },
+            {
+                file: "Flowers.png",
+                title: "Fortune",
+                poster: true
+            },
+            {
+                file: "I am yours.png",
+                title: "Forever",
+                poster: false
+            },
+            {
+                file: "I fall for you.png",
+                title: "I Fall For You",
+                poster: true
+            },
+            {
+                file: "In a State.png",
+                title: "In a State",
+                poster: false
+            },
+            {
+                file: "introspection.png",
+                title: "Introspection",
+                poster: false
+            },
+            {
+                file: "its only gradient.png",
+                title: "It's Only",
+                poster: false
+            },
+            {
+                file: "Jackie.png",
+                title: "Jackie",
+                poster: false
+            },
+            {
+                file: "Longing.png",
+                title: "Longing",
+                poster: false
+            },
+            {
+                file: "Mezzanine.png",
+                title: "Mezzanine",
+                poster: true
+            },
+            {
+                file: "Nothing Is Real.png",
+                title: "Nothing is Real",
+                poster: false
+            },
+            {
+                file: "nothing.png",
+                title: "Nothing",
+                poster: false
+            },
+            {
+                file: "past life.png",
+                title: "Past Life",
+                poster: true
+            },
+            {
+                file: "savour.png",
+                title: "Savour",
+                poster: false
+            },
+            {
+                file: "sign of the times v2.png",
+                title: "Time Passes",
+                poster: false
+            },
+            {
+                file: "Through Time.png",
+                title: "After Dusk",
+                poster: true
+            },
+            {
+                file: "Time never right.png",
+                title: "Never",
+                poster: false
+            },
+        ];
+
+        const orderedImages = [
+            ...images.filter(img => !img.poster),
+            ...images.filter(img => img.poster)
+        ];
+
+        orderedImages.forEach((image, index) => {
+
+            const item = document.createElement("div");
+            item.className = "gallery-item";
+
+            const img = document.createElement("img");
+            img.src = "gallery/" + image.file;
+            img.alt = image.title;
+            img.loading = "lazy";
+
+            img.dataset.index = index;
+
+            item.appendChild(img);
+            gallery.appendChild(item);
+        });
+    </script>
+</html>
