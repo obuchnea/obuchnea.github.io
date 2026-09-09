@@ -8,50 +8,70 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body style="margin: 0px; padding: 0px;">
+<body style="margin: 0px; padding: 0px; overflow-y: hidden; height: 100%;">
 
-    <div class="home-header" style="margin: 0px; padding: 0px;">
-
-        <img id="photo" src="Main.png" style="max-width: 100%;">
-
-        <p>Computer Science Co-op Student at the University of Guelph</p>
-
-        <h2>Work Terms</h2>
-
-        <ul>
-            <li><a href="workterms/workterm1.html">Work Term 1</a></li>
-        </ul>
+    <div class="image-container">
+        <img id="mainImage" src="Main.png">
+        <img id="hoverImage" src="Main.png">
     </div>
 
 </body>
 </html>
 
 <script>
-    const img = document.getElementById("photo");
+    const mainImage = document.getElementById("mainImage");
+    const hoverImage = document.getElementById("hoverImage");
+    const preloadImages = [
+        "Main_OWAIN_Hover.png",
+        "Main_WORKTERM1_Hover.png"
+    ];
+
+    preloadImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
     let hoveredRegion = null;
 
     document.addEventListener("mousemove", (e) => {
-        const rect = img.getBoundingClientRect();
+        const rect = mainImage.getBoundingClientRect();
+
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
         if (x >= 75 && x <= 750 && y >= 400 && y <= 610) {
-            img.src = "Main_OWAIN_Hover.png";
-            hoveredRegion = "owain";
+
+            if (hoveredRegion !== "owain") {
+                hoverImage.src = "Main_OWAIN_Hover.png";
+                hoverImage.style.opacity = "1";
+                hoveredRegion = "owain";
+            }
+
         } else if (x >= 75 && x <= 300 && y >= 350 && y <= 400) {
-            img.src = "Main_WORKTERM1_Hover.png";
-            hoveredRegion = "workterm1";
+
+            if (hoveredRegion !== "workterm1") {
+                hoverImage.src = "Main_WORKTERM1_Hover.png";
+                hoverImage.style.opacity = "1";
+                hoveredRegion = "workterm1";
+            }
+
         } else {
-            img.src = "Main.png";
-            hoveredRegion = null;
+
+            if (hoveredRegion !== null) {
+                hoverImage.style.opacity = "0";
+                hoveredRegion = null;
+            }
         }
     });
 
     document.addEventListener("mousedown", () => {
+
         if (hoveredRegion === "owain") {
-            window.location.href = "about-me.html"; // ← swap in the page you want
+            window.location.href = "about-me.html";
+
         } else if (hoveredRegion === "workterm1") {
-            window.location.href = "workterms/workterm1.html"
+            window.location.href = "workterms/workterm1.html";
         }
+
     });
 </script>

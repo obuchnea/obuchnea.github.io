@@ -35,7 +35,6 @@ html {
     font-family: "HelveticaReal";
     background-color: white;
     color: black;
-    overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
@@ -71,10 +70,13 @@ div.gallery-item {
   width: 243px;
   /* height: 180px; */
   transition: 0.5s;
+  scale: 1;
 }
 
 div.gallery-item:hover {
     box-shadow: 0px 0px 20px 10px var(--avg-color, white);
+    scale: 1.05;
+    z-index: 1;
 }
 
 div.gallery-item img {
@@ -90,6 +92,8 @@ div.gallery-item img {
     width: 100%; height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.9);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .modal.open {
@@ -156,10 +160,55 @@ div.gallery-item img {
 }
 
 .gallery-header {
-    align-items: center;
-    background-color: rgb(211, 182, 146);
+    /* background-color: rgb(211, 182, 146); */
     padding: 20px 20px 20px 20px;
     font-family: "HelveticaReal";
-    color: black;
+    font-weight: medium;
+    background-color: black;
+    color: white;
     font-size: 30px;
+    letter-spacing: -2px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#mainImage {
+    position: relative !important;
+}
+
+#hoverImage {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+a:hover {
+    transform: scale(1.05);
+    
+    text-shadow:
+        0px 0px 10px white,
+        0px 0px 20px white;
+}
+
+.workterm {
+    text-align: justify;
+    max-width: 750px;
+    margin: 0 auto;
 }

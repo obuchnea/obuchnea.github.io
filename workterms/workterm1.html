@@ -1,63 +1,102 @@
-<h1>
-    Abstract/Introduction
-</h1>
+<link rel="stylesheet" href="/styles.css">
+<script src="/header.js" defer></script>
 
-<p>
-    Introduce the reader to your work by telling them what you hope they will take away from the website. Make this short and to the point.
-</p>
+<body style="margin: 0; padding: 0;">
+    <site-header></site-header>
 
-<h1>
-    Information about the Employer
-</h1>
+    <div class="workterm">
+        <h1>
+            Introduction
+        </h1>
 
-<p>
-    Briefly describe your employer and the area of computing science that is related to this company or agency. Include interesting facts about the employer (people, location, products, etc.).
-</p>
+        <p>
+        This page reflects on my second work term as the Data and Implementation Coordinator at Syrup Systems, working on Lee Fairclough's Ontario Liberal Party leadership candidacy. Below, I cover who I worked for, what I set out to learn going in, and what the role actually looked like day to day — from setting up a donation and referral system from scratch to picking up Node.js, API integration, and CRM management along the way.
+        </p>
 
-<h1>
-    Goals
-</h1>
+        <h1>
+            Information about the Employer
+        </h1>
 
-<p>
-    <ul>
-        <li>
-            What were your goals/learning outcomes for this work term?
-        </li>
-        <li>
-            Did you develop goals relating to your job tasks?
-        </li>
-        <li>
-            What skills did you want to learn? How will these tasks benefit your next work experience?
-        </li>
-        <li>
-            What technologies did you want to work with and why?
-        </li>
-        <li>
-            Reflecting on your goals/learning outcomes, what goals did you complete? What goals were you not successful in completing and why?
-        </li>
-    </ul>
-</p>
+        <p>
+            Syrup Systems is an IT services firm for non-profits, founded in 2026 by Nadya Wilkinson, André Capaldi, and Brett Thalmann, with work spanning website development to database management. One of its clients is Lee Fairclough, whose Ontario Liberal Party leadership candidacy Syrup supported from launch — building out her campaign website and database on a combination of HubSpot CRM and the OLP's own Liberalist CRM.
+        </p>
 
-<h1>
-    Job Description
-</h1>
+        <h1>
+            Goals
+        </h1>
 
-<p>
-    Give an overview of your job or project. Highlight the most interesting or unique aspects of your job. What skills did you need for the job? Did you learn them in class or on the job?
-</p>
+        <p>
+            My goals for this work term centered on growing from building isolated features to understanding how a production system fits together — technically, securely, and communicatively. Most of them grew directly out of the job itself: setting up and refactoring the donation platform (Stripe, Node.js/Express on Railway, HubSpot CRM, Google Sheets) drove my backend and deployment goals, building the HubSpot–Stripe integration and referral tracking system shaped my goals around API work and data sync, and handling real donor data under Canadian privacy rules pushed my compliance and CRM goals.
+            <br><br>
+            Underneath all of that was a skills goal: moving from code that just works to code I could deploy, debug, and explain — reading logs, tracing requests, reasoning through failure modes instead of guessing. I also wanted to get better at communicating technical work to non-technical teammates across donor relations, events, and fundraising, since translating their needs into tasks was a constant part of the role. Both skills should carry straight into any future backend or data position. The technologies I focused on — Stripe, Node.js/Express, Railway, and the HubSpot API — weren't chosen abstractly; they're the actual campaign stack, and together they cover the full donation path from payment to backend orchestration to CRM and reporting.
+            <br><br>
+            Looking back, I'm confident I met the core of these goals. I fixed a subtle production bug in the nightly sync script, came out of a full backend refactor with a much stronger grasp of the application, and shipped the referral attribution system end to end while keeping Stripe, HubSpot, and Sheets in reliable sync. I documented both the integration process and the platform's security practices, and picked up the HubSpot CMS theme migration and email authentication setup along the way — a stretch beyond the original plan.
+            <br><br>
+            The one goal that didn't move in a straight line was staying a primary backend contributor. When a dedicated backend developer joined and refactored the platform to production standards, my role in that codebase initially shrank, and it wasn't clear how much of that goal was still mine to hit. Rather than settle into a smaller supporting role, I used it as a push to ramp up on the refactored codebase, and by the end of the term I'd brought myself back to roughly a 50/50 split of backend work with the other dev — so the goal was ultimately met, just later than planned.
+        </p>
 
-<h1>
-    Conclusions
-</h1>
+        <h1>
+            Job Overview
+        </h1>
 
-<p>
-    Review what is important. If your audience were asked to describe the contents of your website, what would you want them to say?
-</p>
+        <p>
+            At Syrup, I worked as the Data and Implementation coordinator — a co-op role at the center of how campaigns build and run their digital infrastructure, from CRM systems to outreach tools to data pipelines.
+            <br><br>
+            Day to day, that means cleaning and analyzing supporter and donor data, supporting reporting and dashboards, and helping set up, configure, and troubleshoot the platforms campaigns run on. I write and maintain lightweight scripts, work with APIs and integrations, and support database structure behind the scenes, then translate that technical work into plain language for clients through clear documents, visuals, and calls — alongside lighter web, design, and email work as needed.
+            <br><br>
+            As a data and implementation coordinator, my job branched a few different aspects of the campaign. A brief overview of my work includes low-level tasks such as scheduling emails to contacts and uploading contacts within the crm to very high-level, sometimes abstract projects such as setting up a full donation process and a referral system.
+            <br><br>
+            <ul>
+                <li>
+                    For the donation piece, I had to set up an end to end process that includes the following:
+                    <ul>
+                        <li>
+                                A server is set up to facilitate the integration between the payment processor, the crm, and the donation webpage
+                        </li>
+                        <li>
+                                A user lands on the donation webpage on the main website, enters their information and donates
+                        </li>
+                        <li>
+                                The server validates payment, then updates the crm by either creating a new contact record or updating an existing contact record
+                        </li>
+                        <li>
+                                The server then shows the appropriate information on the webpage
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    For the referral piece, it was more involved as there were a few more moving parts:
+                    <ul>
+                        <li>
+                                A member (of the party) can get a referral link via a form
+                        </li>
+                        <li>
+                                All users who sign up using said referral link automatically get attributed to the referrer within the crm
+                        </li>
+                        <li>
+                                All referrers get their own spreadsheet that populates nightly with anyone who used their referral link
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-<h1>
-    Acknowledgments
-</h1>
+            The skills required for this job were mostly learned on the fly pertaining to API development and server upkeep, as well as learning an almost entirely new coding language (Node.js)
+        </p>
 
-<p>
-    Is there something or someone that needs acknowledgement?
-</p>
+        <h1>
+            Conclusion
+        </h1>
+
+        <p>
+        This term pushed me well past writing isolated features into understanding how a real production system holds together — deployment, debugging, data integrity, and the compliance considerations that come with handling donor information. The donation and referral systems I built are still running the campaign's day-to-day fundraising, and the dip and recovery on the backend side after a dedicated dev joined taught me almost as much about adaptability as the technical work did. I'm leaving the term with a much stronger grasp of API development, server upkeep, and Node.js than I started with, and a clearer sense of how technical and non-technical teams actually work together to ship something real.
+        </p>
+
+        <h1>
+            Acknowledgments
+        </h1>
+
+        <p>
+            Finally, I'd like to thank André for reaching out with this opportunity, Nadya for being an awesome mentor, and Brett for trusting in my abilities and giving me space to grow — I learned so much from all of them!
+        </p>
+    </div>
+</body>
