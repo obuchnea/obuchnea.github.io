@@ -31,12 +31,27 @@
     src: url("fonts/BICRODEPERSONALUSE.ttf") format("truetype");
 }
 
+@keyframes fade {
+    0%, 30% {
+        opacity: 1;
+    }
+
+    50%, 70% {
+        opacity: 0;
+    }
+
+    90%, 100% {
+        opacity: 1;
+    }
+}
+
 html {
     font-family: "HelveticaReal";
     background-color: white;
     color: black;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    margin: 0;
 }
 
 body {
@@ -44,6 +59,7 @@ body {
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    margin: 0;
 }
 
 html::-webkit-scrollbar,
@@ -168,6 +184,10 @@ div.gallery-item img {
     color: white;
     font-size: 30px;
     letter-spacing: -2px;
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 
 .image-container {
@@ -207,8 +227,63 @@ a:hover {
         0px 0px 20px white;
 }
 
-.workterm {
+.workterm { 
     text-align: justify;
     max-width: 750px;
     margin: 0 auto;
+}
+
+.photo {
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    position: relative;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+.offscreen-text {
+    position: absolute;
+    left: 50%;
+    width: max-content;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+
+    font-size: 53dvh;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: rgb(240, 240, 240);
+
+    transform: translateX(-50%);
+}
+
+.offscreen-text.top {
+    top: 0;
+    transform: translate(-50%, -30%);
+}
+
+.offscreen-text.bottom {
+    bottom: 0;
+    transform: translate(-50%, 30%);
+}
+
+.offscreen-text span {
+    display: inline-block;
+    animation: fade 15s ease-in-out infinite;
+}
+
+.home-nav {
+    font-size: 24px;
+    letter-spacing: -0.05em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    gap: 4rem;
 }
