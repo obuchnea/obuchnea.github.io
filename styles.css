@@ -45,6 +45,34 @@
     }
 }
 
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pageExit {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+}
+
+body.page-exit {
+    animation: pageExit 0.5s ease-in forwards;
+}
+
 html {
     font-family: "HelveticaReal";
     background-color: white;
@@ -55,6 +83,7 @@ html {
 }
 
 body {
+    animation: pageEnter 0.5s ease-out;
     font-family: "HelveticaReal";
     overflow-y: scroll;
     scrollbar-width: none;
@@ -255,7 +284,7 @@ a:hover {
     font-size: 53dvh;
     line-height: 1;
     letter-spacing: -0.05em;
-    color: rgb(240, 240, 240);
+    color: rgb(220, 220, 220);
 
     transform: translateX(-50%);
 }
@@ -285,5 +314,5 @@ a:hover {
 
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 7rem;
 }
