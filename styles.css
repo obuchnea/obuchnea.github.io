@@ -211,15 +211,21 @@ div.gallery-item img {
 }
 
 .gallery-header {
-    /* background-color: rgb(211, 182, 146); */
-    padding: 20px 20px 20px 20px;
-    font-family: "HelveticaReal";
-    font-weight: medium;
+    height: 10vh;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
     background-color: black;
     color: white;
+
+    font-family: "HelveticaReal";
     font-size: 30px;
     letter-spacing: -2px;
-    display: block;
+
     position: sticky;
     top: 0;
     z-index: 5;
@@ -321,4 +327,103 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 7rem;
+}
+
+@media (max-width: 600px) {
+    .gallery-header {
+        height: 8vh;
+        min-height: 56px;
+        padding: 0 12px;
+        gap: 16px;
+        font-size: 20px;
+        letter-spacing: -1px;
+    }
+
+    div.gallery {
+        padding: 3px;
+    }
+
+    div.gallery-item {
+        margin: 3px;
+        width: calc(50vw - 12px);
+    }
+
+    div.gallery-item:hover {
+        scale: 1.02;
+    }
+
+    .modal-content {
+        max-width: 92%;
+        max-height: 72vh;
+    }
+
+    #caption {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .close {
+        top: 10px;
+        right: 16px;
+        font-size: 30px;
+    }
+
+    .nav {
+        font-size: 36px;
+        padding: 12px;
+    }
+
+    .left {
+        left: 4px;
+    }
+
+    .right {
+        right: 4px;
+    }
+
+    .about-content {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 20px 20px 0;
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .hero {
+        min-height: 100svh;
+    }
+
+    .offscreen-text {
+        font-size: 11dvh;
+    }
+
+    .home-nav {
+        gap: 1rem;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .workterm {
+        padding: 0 20px;
+    }
+
+    .scroll-section {
+        height: 48vh;
+    }
+
+    .section-content {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    .workterm .section-content p > span {
+        font-size: clamp(32px, 12vw, 52px) !important;
+    }
+
+    .scroll-progress {
+        top: 8vh;
+        width: 12px;
+        height: 92vh;
+    }
 }
