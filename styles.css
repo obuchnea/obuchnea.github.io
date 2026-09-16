@@ -329,7 +329,7 @@ a:hover {
     gap: 7rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     .gallery-header {
         height: 8vh;
         min-height: 56px;
